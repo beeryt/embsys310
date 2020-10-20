@@ -64,7 +64,7 @@
 
     4. What is the address of the "counter" variable in memory?
 
-    **The address of "counter" is 0x20000000.**
+    **The address of "counter" is 0x20000000. This corresponds to the start of SRAM1 on the SAMD32L4x5.**
 
 
 6. Change the source code to the following, then run the program in the simulator:
@@ -80,11 +80,11 @@
 7. Change the setting of IAR to run the same program on the **evaluation board:**
     1. What is the address where "counter" is stored?
 
-    **The address of "counter" is 0x20000000.**
+    **The address of "counter" is 0x20000000. *p_int* is hard-coded to point to this address.**
 
     2. Is the "counter" variable stored in RAM or ROM?
 
-    **It is stored in RAM at runtime.**
+    **It is stored in RAM at runtime. Specifically address 0x20000000 is the start of SRAM1 on the SAMD32L4x5 which is 96KB.**
 
     3. What is the value of "counter" at the end of the program (halting at the **return 0** statement).
 
