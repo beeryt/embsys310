@@ -68,17 +68,6 @@
 
 
 6. Change the source code to the following, then run the program in the simulator:
-```C
-int counter = 0x0;
-int main() {
-  int *p_int = (int *)0x20000000;
-  ++(*p_int);
-  ++(*p_int);
-  ++(*p_int);
-  counter++;
-  return 0;
-}
-```
     1. What is the value of "counter" at the end of the program (halting at the **return 0** statement)
 
     **The value of "counter" is 4.**
