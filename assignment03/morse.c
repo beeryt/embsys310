@@ -99,6 +99,6 @@ int main() {
 
   // display my name in morse indefinitely
   while(1) {
-    morse_print("Carl B. Smiley");
+    morse_print("  Carl B. Smiley  ");
   }
 }
