@@ -33,13 +33,49 @@
     2. Provide a list of the test cases and the implementation inside of main.c
     3. Separate the stack code from the rest of the test code (stack.h & stack.c)
 
-    >**See [stack.h](stack.h).**
+
+    >**See [stack.h](stack.h) for stack API.**
     >
-    >**See [stack.c](stack.c).**
+    >**See [stack.c](stack.c) for stack implementation and design.**
     >
-    >**See [stack_test.c](stack_test.c).**
-    >
-    >I used [Unity](http://www.throwtheswitch.org/unity) for a convinient test framework. I personally prefer [gtest](https://github.com/google/googletest), but that is a C++ library.
+    >**See [stack_test.c](stack_test.c) for test cases.**
+
+    >I used [Unity](http://www.throwtheswitch.org/unity) for a convenient test framework.
+    >I discovered it while playing around with [Platform IO](https://docs.platformio.org/en/latest/home/index.html) which uses it as their default [unit testing](https://docs.platformio.org/en/latest/tutorials/core/unit_testing_blink.html#tutorial-unit-testing-blink) framework.
+    >I personally prefer [gtest](https://github.com/google/googletest#googletest), but that is a C++ library.
+
+    >A challenge I wanted to impose on myself was using an opaque struct in the API with *private* implementation in [stack.c](stack.c).
+    >Usually this approach involves a `stack_create`/`stack_delete` combo which uses `malloc` and friends.
+    >However, since this is an embedded target I chose to statically allocate a *"pool"* of structs.
+    >Interestingly my memory management for this pool is implemented as a stack. Stacks within Stacks.
+
+    >Here is the coverage of [stack.c](stack.c) when running natively:
+    ```bash
+    $ gcc --coverage -I. -Iexternal/Unity/src external/Unity/src/unity.c stack.c stack_test.c -o stack
+    $ ./stack
+      stack_test.c:313:test_stack_create_should_be_valid:PASS
+      stack_test.c:314:test_stack_create_should_be_empty:PASS
+      stack_test.c:315:test_stack_delete_invalidates_handle:PASS
+      stack_test.c:316:test_stack_create_all_stack_pool:PASS
+      stack_test.c:318:test_stack_push_error_on_invalid_handle:PASS
+      stack_test.c:319:test_stack_pop_error_on_invalid_handle:PASS
+      stack_test.c:320:test_stack_full_error_on_invalid_handle:PASS
+      stack_test.c:321:test_stack_empty_error_on_invalid_handle:PASS
+      stack_test.c:322:test_stack_size_error_on_invalid_handle:PASS
+      stack_test.c:324:test_pop_from_empty_stack:PASS
+      stack_test.c:325:test_push_to_full_stack:PASS
+      stack_test.c:326:test_push_until_full:PASS
+      stack_test.c:327:test_pop_until_empty:PASS
+      stack_test.c:328:test_push_then_pop_single_item:PASS
+      stack_test.c:329:test_push_then_pop_all_items:PASS
+      stack_test.c:330:test_push_then_pop_all_items_interleaved:PASS
+
+      -----------------------
+      16 Tests 0 Failures 0 Ignored
+    $ gcov stack.c
+      File 'stack.c'
+      Lines executed:100.00% of 31
+    ```
 
 
 
