@@ -1,3 +1,11 @@
+/*
+ *  File:       stack.c
+ *  Author:     Carl B. Smiley
+ *  Date:       Nov 10 2020
+ *  Course:     Fundamentals of Embedded and Real Time Systems
+ *
+ * Description: stack implementation which supports multiple stack instances
+ */
 #include <stack.h>
 #include <stdlib.h>
 

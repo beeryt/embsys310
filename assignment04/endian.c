@@ -1,3 +1,11 @@
+/*
+ *  File:       endian.c
+ *  Author:     Carl B. Smiley
+ *  Date:       Nov 11 2020
+ *  Course:     Fundamentals of Embedded and Real Time Systems
+ *
+ * Description: displays endianness of processor over UART1
+ */
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>

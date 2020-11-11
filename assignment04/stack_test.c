@@ -1,3 +1,12 @@
+/*
+ *  File:       stack_test.c
+ *  Author:     Carl B. Smiley
+ *  Date:       Nov 10 2020
+ *  Course:     Fundamentals of Embedded and Real Time Systems
+ *
+ * Description: test code implementation for the stack interface
+ * Note: uses the Unity test framework
+ */
 #include <stack.h>
 #include <unity.h>
 #include <string.h>

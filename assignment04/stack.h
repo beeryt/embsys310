@@ -1,3 +1,11 @@
+/*
+ *  File:       stack.h
+ *  Author:     Carl B. Smiley
+ *  Date:       Nov 10 2020
+ *  Course:     Fundamentals of Embedded and Real Time Systems
+ *
+ * Description: stack interface API which supports multiple stack instances
+ */
 #pragma once
 
 #ifndef STACK_SIZE
