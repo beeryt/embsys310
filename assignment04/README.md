@@ -20,29 +20,29 @@
 
 3. Following the queue data structure approach: design, implement, and test a *stack data structure*:
     1. The following is the list of requirements
-        i. The stack should have a predefined size
-        ii. The stack supports `int` data types
-        iii. Provide a function to initialize the stack internals
-        iv. Provide a function to push an element onto the stack
-        v. Provide a function to pop an element off the stack
-        vi. Provide a function that returns 1 if stack is empty
-        vii. Provide a function that returns 1 if stack is full
-        viii. *Return an error code on function failure*
-        xi. *Provide a function that returns the size of the stack*
-        x. *Allow multiple instances of the stack*
+        1. The stack should have a predefined size
+        2. The stack supports `int` data types
+        3. Provide a function to initialize the stack internals
+        4. Provide a function to push an element onto the stack
+        5. Provide a function to pop an element off the stack
+        6. Provide a function that returns 1 if stack is empty
+        7. Provide a function that returns 1 if stack is full
+        8. **Return an error code on function failure**
+        9. **Provide a function that returns the size of the stack**
+        10. **Allow multiple instances of the stack**
     2. Provide a list of the test cases and the implementation inside of main.c
     3. Separate the stack code from the rest of the test code (stack.h & stack.c)
 
     >**See [stack.h](stack.h).**
-
+    >
     >**See [stack.c](stack.c).**
-
+    >
     >**See [stack_test.c](stack_test.c).**
-
+    >
     >I used [Unity](http://www.throwtheswitch.org/unity) for a convinient test framework. I personally prefer [gtest](https://github.com/google/googletest), but that is a C++ library.
 
 
 
-4. *Bonus:* Using the power of pointers and type casting: create a function that can determine if a processor is big-endian or little-endian. Test your function in the simulator to try both architectures.
+4. **Bonus:** Using the power of pointers and type casting: create a function that can determine if a processor is big-endian or little-endian. Test your function in the simulator to try both architectures.
 
-    >**See [endian.c](endian.c)
+    >**See [endian.c](endian.c).**
