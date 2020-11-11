@@ -37,7 +37,8 @@ int stack_push(stack_t* stack, int data) {
 int stack_pop(stack_t* stack, int* data) {
     if (stack == NULL) return STACK_ERROR_HANDLE;
     if (stack_empty(stack)) return STACK_ERROR_FAILURE;
-    *data = *(--stack->sp);
+    --stack->sp;
+    if (data != NULL) *data = *stack->sp;
     return STACK_SUCCESS;
 }
 

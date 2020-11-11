@@ -78,36 +78,55 @@ void test_stack_create_all_stack_pool(void) {
 
 /** Tests whether error occurs when invalid handle is provided
  */
-void test_stack_push_error_on_invalid_handle(void) {
+void test_stack_push_invalid_arguments(void) {
     int actual = stack_push(NULL, 0);
     TEST_ASSERT_EQUAL(STACK_ERROR_HANDLE, actual);
 }
 
 /** Tests whether error occurs when invalid handle is provided
  */
-void test_stack_pop_error_on_invalid_handle(void) {
+void test_stack_pop_invalid_arguments(void) {
     int unused_buffer;
     int actual = stack_pop(NULL, &unused_buffer);
     TEST_ASSERT_EQUAL(STACK_ERROR_HANDLE, actual);
 }
 
+/** Tests whether NULL is accepted for pop data arg
+ */
+void test_stack_pop_null_data(void) {
+    int actual, size_before, size_after, is_empty;
+
+    stack_t* handle = stack_create();
+    stack_push(handle, 1);
+    size_before = stack_size(handle);
+    actual = stack_pop(handle, NULL);
+    size_after = stack_size(handle);
+    is_empty = stack_empty(handle);
+    stack_delete(&handle);
+
+    TEST_ASSERT_EQUAL(STACK_SUCCESS, actual);
+    TEST_ASSERT_EQUAL(1, size_before);
+    TEST_ASSERT_EQUAL(0, size_after);
+    TEST_ASSERT_EQUAL(1, is_empty);
+}
+
 /** Tests whether error occurs when invalid handle is provided
  */
-void test_stack_full_error_on_invalid_handle(void) {
+void test_stack_full_invalid_arguments(void) {
     int actual = stack_full(NULL);
     TEST_ASSERT_EQUAL(STACK_ERROR_HANDLE, actual);
 }
 
 /** Tests whether error occurs when invalid handle is provided
  */
-void test_stack_empty_error_on_invalid_handle(void) {
+void test_stack_empty_invalid_arguments(void) {
     int actual = stack_empty(NULL);
     TEST_ASSERT_EQUAL(STACK_ERROR_HANDLE, actual);
 }
 
 /** Tests whether error occurs when invalid handle is provided
  */
-void test_stack_size_error_on_invalid_handle(void) {
+void test_stack_size_invalid_arguments(void) {
     int actual = stack_size(NULL);
     TEST_ASSERT_EQUAL(STACK_ERROR_HANDLE, actual);
 }
@@ -315,11 +334,12 @@ int main() {
     RUN_TEST(test_stack_delete_invalidates_handle);
     RUN_TEST(test_stack_create_all_stack_pool);
 
-    RUN_TEST(test_stack_push_error_on_invalid_handle);
-    RUN_TEST(test_stack_pop_error_on_invalid_handle);
-    RUN_TEST(test_stack_full_error_on_invalid_handle);
-    RUN_TEST(test_stack_empty_error_on_invalid_handle);
-    RUN_TEST(test_stack_size_error_on_invalid_handle);
+    RUN_TEST(test_stack_push_invalid_arguments);
+    RUN_TEST(test_stack_pop_invalid_arguments);
+    RUN_TEST(test_stack_pop_null_data);
+    RUN_TEST(test_stack_full_invalid_arguments);
+    RUN_TEST(test_stack_empty_invalid_arguments);
+    RUN_TEST(test_stack_size_invalid_arguments);
 
     RUN_TEST(test_pop_from_empty_stack);
     RUN_TEST(test_push_to_full_stack);
