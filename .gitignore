@@ -4,3 +4,6 @@
 *.out
 *.ewt
 *.map
+*.gcda
+*.gcno
+*.gcov
