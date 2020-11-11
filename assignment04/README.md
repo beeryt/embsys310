@@ -82,3 +82,6 @@
 4. **Bonus:** Using the power of pointers and type casting: create a function that can determine if a processor is big-endian or little-endian. Test your function in the simulator to try both architectures.
 
     >**See [endian.c](endian.c).**
+
+    > Output of the program is provided through UART over USB.
+    > In the future I would like to use UART, DMA and a FIFO buffer to reduce CPU overhead.
