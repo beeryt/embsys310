@@ -87,3 +87,8 @@ $ gcov stack.c
 #### 4.b Cortex M4 (big endian option)
 ```bash
 ```
+#### Intel x64 Processor
+```bash
+isBigEndian():      false
+isLittleEndian():   true
+```

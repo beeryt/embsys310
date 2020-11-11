@@ -9,7 +9,13 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+#ifndef COMPILE_NATIVELY
 #include <stm32l4xx_hal.h>
+void init_uart();
+#else
+void init_uart() {}
+#endif
 
 /** The processor is big-endian if the MSB is the first byte */
 bool isBigEndian() {
@@ -23,14 +29,13 @@ bool isLittleEndian() {
     return 0xFF == *((uint8_t*)(&storage));
 }
 
-void init_uart();
-
 int main() {
     init_uart();
     printf("isBigEndian():      %s\n\r", isBigEndian() ? "true": "false");
     printf("isLittleEndian():   %s\n\r", isLittleEndian() ? "true": "false");
 }
 
+#ifndef COMPILE_NATIVELY
 static UART_HandleTypeDef huart;
 
 /** Initializes UART1 which allows for TX over USB */
@@ -63,3 +68,4 @@ ssize_t _write(int fd, const void *buf, size_t count) {
     HAL_UART_Transmit(&huart, (uint8_t*)buf, count, HAL_MAX_DELAY);
     return count;
 }
+#endif
