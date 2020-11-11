@@ -20,8 +20,10 @@
 #define GPIOB_ODR   (*((unsigned int*)(GPIOB_BASE + 0x14)))
 
 // Macros for Bit Values
-#define GPIOAEN         (1<<0)
-#define GPIOBEN         (1<<1)
+#define GPIOAEN_BIT     0
+#define GPIOBEN_BIT     1
+#define GPIOAEN         (1<<GPIOAEN_BIT)
+#define GPIOBEN         (1<<GPIOBEN_BIT)
 #define MODE5_0         (1<<10)
 #define MODE5_1         (1<<11)
 #define MODE15_0        (1<<28)
@@ -31,9 +33,18 @@
 
 #define COUNTER_RESET   (100000)
 
+#define USE_BIT_BANDING
+#define PERIPHERAL_BIT_BAND(ADDR, BIT) (*((unsigned int*)(0x42000000 + ((ADDR - 0x40000000) * 32) + (BIT * 4))))
+#define SRAM_BIT_BAND(ADDR, BIT) (*((unsigned int*)(0x22000000 + ((ADDR - 0x20000000) * 32) + (BIT * 4))))
+
 int main() {
   // sets up LED2 (PB14) as a GPIO output
+#ifdef USE_BIT_BANDING
+  PERIPHERAL_BIT_BAND(RCC_AHB2ENR, GPIOAEN_BIT) = 1;
+  PERIPHERAL_BIT_BAND(RCC_AHB2ENR, GPIOBEN_BIT) = 1;
+#else
   RCC_AHB2ENR   |= (GPIOAEN | GPIOBEN); // enable GPIOA and GPIOB
+#endif
   GPIOA_MODER   &= ~MODE5_1;            // enable output for PA5 from reset state
   GPIOB_MODER   &= ~MODE14_1;           // enable output for PB14 from reset state
   GPIOB_ODR     |= OD14;                // turn on LED2 at PB14
