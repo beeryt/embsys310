@@ -1,12 +1,11 @@
 # EMBSYS 310 - Assignment 04
 
-## Problems
-### Problem 1
+## Problem 1
 >For implementation:
 >
 >See [blink.c](blink.c)
 
-#### 1.a What instructions does the compiler produce in assembly for "writing to the ~~GPIO~~ GPIOAEN bit when using bit-band alias?
+### 1.a What instructions does the compiler produce in assembly for "writing to the ~~GPIO~~ GPIOAEN bit when using bit-band alias?
 
 >The assembly puts 1 in `R0`, loads the address of the bit-band alias, `0x4242980` into `R1`, then stores `R0` into the memory referenced by `R1`.
 ```asm
@@ -16,7 +15,7 @@ LDR.N   R1, [PC, $0x40] ; 0x42420980
 STR     R0, [R1]
 ```
 
-#### 1.b What were the instructions produced when writing to the GPIOx_ODR register without using bit-banding?
+### 1.b What were the instructions produced when writing to the GPIOx_ODR register without using bit-banding?
 
 >The assembly loads the GPIOA_ODR address, `0x48000014`, into `R0`. Then loads the value at that address into `R1`. An exclusive or operation is performed on bit 5 (`0x20`) and the resulting `R1` is stored into the memory referenced by `R0`.
 ```asm
@@ -28,7 +27,7 @@ STR     R1, [R0]
 ```
 
 
-### Problem 2
+## Problem 2
 >For implementation:
 >
 >See [func.c](func.c).
@@ -59,7 +58,7 @@ main:
   POP     {R1, PC}
 ```
 
-#### 2.a How does the *calling* function `func2` pass the values to the *called* function `func1`?
+### 2.a How does the *calling* function `func2` pass the values to the *called* function `func1`?
 
 >Inside the dissasembly of `func2` the fifth argument (`#5`) is placed onto the stack (without decrementing SP?). The first four arguments are placed in `R0-R3`. A `BL` instruction branches to the `func1` label.
 ```asm
@@ -72,7 +71,7 @@ MOVS    R0  #1
 BL      func1
 ```
 
-#### 2.b What extra code did the compiler generate before calling the function `func1` with the multiple arguments?
+### 2.b What extra code did the compiler generate before calling the function `func1` with the multiple arguments?
 
 >The dissasembly shows a `PUSH {R7, LR}` instruction pushes `LR` onto the stack so we can return from `func2` (`main` does this as well).
 ```asm
@@ -80,14 +79,14 @@ PUSH    {R7, LR}
 ```
 
 
-#### 2.c What extra code did the compiler generate inside the *called* function `func1` with the multiple list of arguments?
+### 2.c What extra code did the compiler generate inside the *called* function `func1` with the multiple list of arguments?
 
 >There is no *extra* code here. Just a branch back to `LR` which at this time is inside `func2` after the `BL` instruction.
 ```asm
 BX    LR
 ```
 
-#### 2.d Any other observations?
+### 2.d Any other observations?
 
 >I wanted to invesitage why the fifth argument (`#5`) didn't decrement `SP` inside `func2`. I modified `func1` as follows:
 ```C
@@ -115,7 +114,7 @@ func1:
 >Most baffling is the `MOVS` instruction which appears to place the value of `a1` into `R4` before immediately overwritting it by popping into `R4`.
 
 
-### Problem 3
+## Problem 3
 >For implementation:
 >
 >See [stack.h](stack.h) for stack API<br>
@@ -170,7 +169,7 @@ $ gcov stack.c
   Lines executed:100.0% of 31
 ```
 
-### Problem 4 **(BONUS)**
+## Problem 4 **(BONUS)**
 > For implementation:
 >
 > See [endian.c](endian.c).
@@ -192,18 +191,18 @@ $ gcov stack.c
 >    5. Press Go (F5)
 
 
-#### 4.a Cortex M4 (little endian option)
+### 4.a Cortex M4 (little endian option)
 ```bash
 isBigEndian():      false
 isLittleEndian():   true
 ```
-#### 4.b Cortex M4 (big endian option)
+### 4.b Cortex M4 (big endian option)
 ```bash
 isBigEndian():      true
 isLittleEndian():   false
 ```
 
-#### Intel x64 Processor
+### Intel x64 Processor
 ```bash
 isBigEndian():      false
 isLittleEndian():   true
