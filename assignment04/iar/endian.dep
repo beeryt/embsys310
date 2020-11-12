@@ -5,41 +5,49 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\Exe\endian.out</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+            <file>$PROJ_DIR$\..\endian.c</file>
             <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\endian.out</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\..\endian.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\endian.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\endian.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\endian.xcl</file>
-            <file>$PROJ_DIR$\Debug\List\endian.map</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tbn.a</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tbs.a</file>
-            <file>$TOOLKIT_DIR$\lib\shb_b.a</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tb.a</file>
-            <file>$PROJ_DIR$\..\func.c</file>
             <file>$TOOLKIT_DIR$\config\generic_cortex.icf</file>
+            <file>$PROJ_DIR$\Debug\Obj\endian.pbd</file>
             <file>$PROJ_DIR$\Debug\Obj\endian.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\endian.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\endian.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tbs.a</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tb.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tbn.a</file>
+            <file>$PROJ_DIR$\Debug\List\endian.map</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\..\stack_test.c</file>
         </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 0 18</file>
+                </tool>
+            </outputs>
+        </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\endian.out</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 14</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 20 11 17 18 16 15</file>
+                    <file> 8 11 15 14 17</file>
                 </tool>
             </inputs>
         </file>
@@ -52,29 +60,23 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 13</file>
+                    <file> 12</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 21</file>
+                    <file> 10</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 0 8 9 1 4 5 6 7 2</file>
+                    <file> 3 16 7 4 6 5 19 13 1</file>
                 </tool>
             </inputs>
         </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 3 14</file>
-                </tool>
-            </outputs>
-        </file>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>

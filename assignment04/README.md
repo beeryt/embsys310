@@ -122,7 +122,23 @@ func1:
 >See [stack.c](stack.c) for stack implementation and design<br>
 >See [stack_test.c](stack_test.c) for test cases
 
+>To run using IAR follow these steps:
+>1. Select `stack` project
+>2. Configure Project Options
+>    1. Select STM32L475VG
+>    2. Make sure semihosting is enabled (default)
+>        - General Options > Library Configuration > Semihosted
+>    2. Set Debugger to Simulator (default)
+>    3. Start Debugger
+>    4. Open View > Terminal I/O
+>    5. Press Go (F5)
+
 > I used [Unity][link-unity] for a convenient test framework. I discovered it while playing around with [Platform IO][link-pio] which uses it as their default [unit testing][link-unit-pio] framework. I personally prefer [gtest][link-gtest], but it is a C++ library and I didn't want to mix C/C++ for this assignment.
+
+[link-unity]: http://www.throwtheswitch.org/unity
+[link-pio]: https://docs.platformio.org/en/latest/home/
+[link-unit-pio]: https://docs.platformio.org/en/latest/plus/unit-testing.html
+[link-gtest]: https://github.com/google/googletest
 
 > A challenge I wanted to impose on myself was supporting multiple stack instances and using an opaque struct in the API with *private* implementation in `stack.c`. Usually this approach involves a `stack_create`/`stack_delete` combo which uses `malloc` and friends. However, since this is an embedded target I chose to statically allocate a *"pool"* of structs. Interestingly my memory management for this *pool* is also implemented as a stack. I have stacks within stacks.
 
@@ -159,16 +175,22 @@ $ gcov stack.c
 >
 > See [endian.c](endian.c).
 
-> Output of `endian.c` is provided through UART over USB. In the future I would like to use UART, DMA and a FIFO buffer to reduce CPU overhead.
+> Output of `endian.c` can be viewed using `View > Terminal I/O` and default project configuration for semihosting.
 
-> I initially developed this using PlatformIO instead of IAR which I believe uses `arm-none-eabi-gcc` with `newlib`. However, I notice in IAR project settings the defaults appear to configure `semihosting`. I confirmed this by disabling the HAL uart calls and observing that the program correctly works when on the device (through semihosting).
+> I initially developed this program using PlatformIO instead of IAR which uses a different toolchain: `arm-none-eabi-gcc` with `newlib`. For that purpose I implemented `ssize_t _write(int, const void*, size_t)` but it appears IAR desires a different low-level signature for `stdio`. For now the `stdio` output is accomplished using IAR semihosting.
 
 > Steps to see output running on device:
-> 1. Configure Project to run on device
-> 2. Launch Debugger
-> 3. Open View > Terminal I/O
-> 4. Press Go (F5)
-> 
+>1. Select `endian` project
+>2. Configure Project Options
+>    1. Select STM32L475VG
+>    2. Make sure semihosting is enabled (default)
+>        - `General Options > Library Configuration > Semihosted`
+>    2. Set Debugger to Simulator (default) or ST-Link
+>        - Update `ST-Link > Interface` and `ST-Link > Reset`
+>    3. Start Debugger
+>    4. Open `View > Terminal I/O`
+>    5. Press Go (F5)
+
 
 #### 4.a Cortex M4 (little endian option)
 ```bash

@@ -5,31 +5,39 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\blink.xcl</file>
-            <file>$TOOLKIT_DIR$\config\linker\ST\stm32l475xG.icf</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
             <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
             <file>$PROJ_DIR$\Debug\Obj\blink.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\blink.pbd</file>
+            <file>$PROJ_DIR$\Debug\Obj\blink.o</file>
+            <file>$TOOLKIT_DIR$\config\linker\ST\stm32l475xG.icf</file>
+            <file>$PROJ_DIR$\Debug\List\blink.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\blink.xcl</file>
             <file>$PROJ_DIR$\Debug\Exe\blink.out</file>
             <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\Debug\List\blink.map</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
             <file>$PROJ_DIR$\..\blink.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\blink.o</file>
         </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 5 7</file>
+                </tool>
+            </outputs>
+        </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\blink.out</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 9</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 1 11 2 3 8 4</file>
+                    <file> 4 3 1 9 8 0</file>
                 </tool>
             </inputs>
         </file>
@@ -38,24 +46,15 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 11</file>
+                    <file> 3</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 0</file>
+                    <file> 6</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 5</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 7 9</file>
+                    <file> 2</file>
                 </tool>
             </outputs>
         </file>
