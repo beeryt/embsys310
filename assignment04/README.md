@@ -1,9 +1,7 @@
 # EMBSYS 310 - Assignment 04
 
 ## Problem 1
->For implementation:
->
->See [blink.c](blink.c)
+>For implementation see [blink.c](blink.c)
 
 ### 1.a What instructions does the compiler produce in assembly for "writing to the ~~GPIO~~ GPIOAEN bit when using bit-band alias?
 
@@ -28,9 +26,7 @@ STR     R1, [R0]
 
 
 ## Problem 2
->For implementation:
->
->See [func.c](func.c).
+>For implementation see [func.c](func.c).
 
 ```asm
 func1:
@@ -115,8 +111,7 @@ func1:
 
 
 ## Problem 3
->For implementation:
->
+>For implementation:<br>
 >See [stack.h](stack.h) for stack API<br>
 >See [stack.c](stack.c) for stack implementation and design<br>
 >See [stack_test.c](stack_test.c) for test cases
@@ -170,9 +165,7 @@ $ gcov stack.c
 ```
 
 ## Problem 4 **(BONUS)**
-> For implementation:
->
-> See [endian.c](endian.c).
+> For implementation see [endian.c](endian.c).
 
 > Output of `endian.c` can be viewed using `View > Terminal I/O` and default project configuration for semihosting.
 
