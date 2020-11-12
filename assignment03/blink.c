@@ -42,7 +42,7 @@ int main() {
   int counter = 0;
   while (1) {
     if (++counter > COUNTER_RESET) {
-      GPIOB_ODR ^= OD14;
+      GPIOA_ODR ^= OD5;
       counter = 0;
     }
   }
