@@ -17,8 +17,10 @@
 |-----------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 0x20000000-0x200FFFFF | SRAM bit-band region       | Direct accesses to this memory range behave as SRAM memory accesses, but this region is also bit addressable through bit-band alias.                    |
 | 0x22000000-0x23FFFFFF | SRAM bit-band alias        | Data accesses to this region are remapped to bit band region. A write operation is performed as read-modify-write. Instruction acceses are not remapped |
-| 0x40000000-0x400FFFFF | Peripheral bit-band alias  | Direct accesses to this momory range behave as peripheral memory accesses, but this region is also bit addressable through bit-band alias.
+| 0x40000000-0x400FFFFF | Peripheral bit-band region | Direct accesses to this momory range behave as peripheral memory accesses, but this region is also bit addressable through bit-band alias.              |
 | 0x42000000-0x43FFFFFF | Peripheral bit-band alias  | Data accesses to this region are remapped to bit band region. A write operation is performed as read-modify-write. Instruction acceses are not remapped |
+
+
 
 ### Bit-Band mapping calculation
 A mapping formula shows how to reference each word in the alias region to a corresponding bit in the bit-band region. The mapping formula is:
