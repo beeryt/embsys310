@@ -10,7 +10,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifndef COMPILE_NATIVELY
+#ifdef USE_HAL
 #include <stm32l4xx_hal.h>
 void init_uart();
 #else
@@ -35,7 +35,7 @@ int main() {
     printf("isLittleEndian():   %s\n\r", isLittleEndian() ? "true": "false");
 }
 
-#ifndef COMPILE_NATIVELY
+#ifdef USE_HAL
 static UART_HandleTypeDef huart;
 
 /** Initializes UART1 which allows for TX over USB */

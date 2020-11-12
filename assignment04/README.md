@@ -161,12 +161,26 @@ $ gcov stack.c
 
 > Output of `endian.c` is provided through UART over USB. In the future I would like to use UART, DMA and a FIFO buffer to reduce CPU overhead.
 
+> I initially developed this using PlatformIO instead of IAR which I believe uses `arm-none-eabi-gcc` with `newlib`. However, I notice in IAR project settings the defaults appear to configure `semihosting`. I confirmed this by disabling the HAL uart calls and observing that the program correctly works when on the device (through semihosting).
+
+> Steps to see output running on device:
+> 1. Configure Project to run on device
+> 2. Launch Debugger
+> 3. Open View > Terminal I/O
+> 4. Press Go (F5)
+> 
+
 #### 4.a Cortex M4 (little endian option)
 ```bash
+isBigEndian():      false
+isLittleEndian():   true
 ```
 #### 4.b Cortex M4 (big endian option)
 ```bash
+isBigEndian():      true
+isLittleEndian():   false
 ```
+
 #### Intel x64 Processor
 ```bash
 isBigEndian():      false
