@@ -7,13 +7,13 @@
  * Description: Implementation for Question2 of Assignment04
  */
 int func1(int a1, int a2, int a3, int a4, int a5) {
-    return 0;
+  return a5;
 }
 
-int func2() {
-    return func1(1,2,3,4,5);
+void func2() {
+    func1(1,2,3,4,5);
 }
 
 int main() {
-    return func2();
+    func2();
 }

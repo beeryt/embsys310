@@ -33,21 +33,87 @@ STR     R1, [R0]
 >
 >See [func.c](func.c).
 
+```asm
+func1:
+  BX      LR
+void func2() {
+func2:
+  PUSH    {R7, LR}
+  func1(1,2,3,4,5);
+  MOVS    R0, #5
+  STR     R0, [SP]
+  MOVS    R3, #4
+  MOVS    R2, #3
+  MOVS    R1, #2
+  MOVS    R0  #1
+  BL      func1
+}
+  POP     {R0, PC}
+int main() {
+main:
+  PUSH    {R7, LR}
+  func2();
+  BL      func2
+}
+  MOVES   R0, #0
+  POP     {R1, PC}
+```
+
 #### 2.a How does the *calling* function `func2` pass the values to the *called* function `func1`?
 
->Here is my answer
+>Inside the dissasembly of `func2` the fifth argument (`#5`) is placed onto the stack (without decrementing SP?). The first four arguments are placed in `R0-R3`. A `BL` instruction branches to the `func1` label.
+```asm
+MOVS    R0, #5
+STR     R0, [SP]
+MOVS    R3, #4
+MOVS    R2, #3
+MOVS    R1, #2
+MOVS    R0  #1
+BL      func1
+```
 
 #### 2.b What extra code did the compiler generate before calling the function `func1` with the multiple arguments?
 
->Here is my answer
+>The dissasembly shows a `PUSH {R7, LR}` instruction pushes `LR` onto the stack so we can return from `func2` (`main` does this as well).
+```asm
+PUSH    {R7, LR}
+```
+
 
 #### 2.c What extra code did the compiler generate inside the *called* function `func1` with the multiple list of arguments?
 
->Here is my answer
+>There is no *extra* code here. Just a branch back to `LR` which at this time is inside `func2` after the `BL` instruction.
+```asm
+BX    LR
+```
 
 #### 2.d Any other observations?
 
->Here is my answer
+>I wanted to invesitage why the fifth argument (`#5`) didn't decrement `SP` inside `func2`. I modified `func1` as follows:
+```C
+int func1(int a1, int a2, int a3, int a4, int a5) {
+  return a5;
+}
+```
+```asm
+func1:
+  PUSH    {R4}
+  MOVS    R4, R0
+  LDR     R0, [SP, #0x4]
+  return a5;
+  POP     {R4}
+  BX      LR
+```
+>The new disassembly of `func1` shows a strange dance with the stack, `R4` and `R0`. I'm really not sure what the `PUSH`, `MOVS`, and `POP` instructions accomplish here. The `LDR R0, [SP, #0x4]` reads from the stack without moving `SP`. The `#0x4` is an `int` offset to avoid the `R4` which had just been pushed.
+
+>I feel that the contents of `func1` could be written more succinctly:
+```asm
+func1:
+  LDR   R0, [SP]
+  BX    LR
+```
+>Most baffling is the `MOVS` instruction which appears to place the value of `a1` into `R4` before immediately overwritting it by popping into `R4`.
+
 
 ### Problem 3
 >For implementation:

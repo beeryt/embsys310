@@ -4,7 +4,11 @@
     <fileChecksum>652057772</fileChecksum>
     <configuration>
         <name>Debug</name>
-        <outputs />
+        <outputs>
+            <file>$PROJ_DIR$\..\stack.c</file>
+            <file>$PROJ_DIR$\..\stack_test.c</file>
+            <file>$PROJ_DIR$\..\stack.h</file>
+        </outputs>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>ILINK</tool>

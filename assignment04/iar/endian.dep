@@ -5,11 +5,9 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\endian.o</file>
-            <file>$PROJ_DIR$\..\endian.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\endian.pbd</file>
-            <file>$PROJ_DIR$\..\blink.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\endian.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
             <file>$PROJ_DIR$\Debug\Exe\endian.out</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
@@ -17,22 +15,21 @@
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
             <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+            <file>$PROJ_DIR$\..\endian.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\endian.xcl</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\..\endian.c</name>
             <outputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 4</file>
+                    <file> 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 12 10 11 13 6 7 8 9 14</file>
+                    <file> 0 8 9 1 4 5 6 7 2</file>
                 </tool>
             </inputs>
         </file>
@@ -41,7 +38,7 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 5</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
         </file>
