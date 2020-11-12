@@ -5,32 +5,43 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\endian.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\endian.xcl</file>
-            <file>$PROJ_DIR$\..\blink.c</file>
             <file>$PROJ_DIR$\Debug\Obj\endian.o</file>
-            <file>$PROJ_DIR$\Debug\Exe\endian.out</file>
             <file>$PROJ_DIR$\..\endian.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\endian.pbd</file>
+            <file>$PROJ_DIR$\..\blink.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\endian.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\endian.out</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
         </outputs>
+        <file>
+            <name>$PROJ_DIR$\..\endian.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 4</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 12 10 11 13 6 7 8 9 14</file>
+                </tool>
+            </inputs>
+        </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 4</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\endian.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 3</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 1</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
         </file>

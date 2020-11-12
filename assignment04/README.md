@@ -6,13 +6,27 @@
 >
 >See [blink.c](blink.c)
 
-#### 1.a What instructions does to the compiler produce in assembly for "writing to the GPIO bit when using bit-band alias?
+#### 1.a What instructions does the compiler produce in assembly for "writing to the ~~GPIO~~ GPIOAEN bit when using bit-band alias?
 
->Here is my answer
+>The assembly puts 1 in `R0`, loads the address of the bit-band alias, `0x4242980` into `R1`, then stores `R0` into the memory referenced by `R1`.
+```asm
+  PERIPHERAL_BIT_BAND(RCC_AHB2ENR_ADDR, GPIOAEN_BIT) = 1;
+MOVS    R0, #1
+LDR.N   R1, [PC, $0x40] ; 0x42420980
+STR     R0, [R1]
+```
 
-#### 1.b What were the instructions produced when writing to the RCC register without using bit-banding?
+#### 1.b What were the instructions produced when writing to the GPIOx_ODR register without using bit-banding?
 
->Here is my answer
+>The assembly loads the GPIOA_ODR address, `0x48000014`, into `R0`. Then loads the value at that address into `R1`. An exclusive or operation is performed on bit 5 (`0x20`) and the resulting `R1` is stored into the memory referenced by `R0`.
+```asm
+  GPIOA_ODR ^= OD5;
+LDR.N   R0, [PC, #0x20] ; 0x48000014
+LDR     R1, [R0]
+EORS.W  R1, R1, #32     ; 0x20
+STR     R1, [R0]
+```
+
 
 ### Problem 2
 >For implementation:

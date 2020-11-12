@@ -13,7 +13,8 @@
 #define GPIOB_BASE       0x48000400
 
 // Macros for convenient register access
-#define RCC_AHB2ENR (*((unsigned int*)(RCC_AHB2ENR_BASE + 0x4C)))
+#define RCC_AHB2ENR_ADDR (RCC_AHB2ENR_BASE + 0x4C)
+#define RCC_AHB2ENR (*((unsigned int*)(RCC_AHB2ENR_ADDR)))
 #define GPIOA_MODER (*((unsigned int*)(GPIOA_BASE + 0x00)))
 #define GPIOB_MODER (*((unsigned int*)(GPIOB_BASE + 0x00)))
 #define GPIOA_ODR   (*((unsigned int*)(GPIOA_BASE + 0x14)))
@@ -40,8 +41,8 @@
 int main() {
   // sets up LED2 (PB14) as a GPIO output
 #ifdef USE_BIT_BANDING
-  PERIPHERAL_BIT_BAND(RCC_AHB2ENR, GPIOAEN_BIT) = 1;
-  PERIPHERAL_BIT_BAND(RCC_AHB2ENR, GPIOBEN_BIT) = 1;
+  PERIPHERAL_BIT_BAND(RCC_AHB2ENR_ADDR, GPIOAEN_BIT) = 1;
+  PERIPHERAL_BIT_BAND(RCC_AHB2ENR_ADDR, GPIOBEN_BIT) = 1;
 #else
   RCC_AHB2ENR   |= (GPIOAEN | GPIOBEN); // enable GPIOA and GPIOB
 #endif
@@ -53,7 +54,7 @@ int main() {
   int counter = 0;
   while (1) {
     if (++counter > COUNTER_RESET) {
-      GPIOB_ODR ^= OD14;
+      GPIOA_ODR ^= OD5;
       counter = 0;
     }
   }
