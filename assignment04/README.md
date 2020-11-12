@@ -1,5 +1,11 @@
 # EMBSYS 310 - Assignment 04
+- [Problem 1](#Problem-1)
+- [Problem 2](#Problem-2)
+- [Problem 3](#Problem-3)
+- [Problem 4](#Problem-4)
 
+
+---
 ## Problem 1
 >For implementation see [blink.c](blink.c)
 
@@ -25,6 +31,7 @@ STR     R1, [R0]
 ```
 
 
+---
 ## Problem 2
 >For implementation see [func.c](func.c).
 
@@ -110,6 +117,7 @@ func1:
 >Most baffling is the `MOVS` instruction which appears to place the value of `a1` into `R4` before immediately overwritting it by popping into `R4`.
 
 
+---
 ## Problem 3
 >For implementation:<br>
 >See [stack.h](stack.h) for stack API<br>
@@ -164,6 +172,8 @@ $ gcov stack.c
   Lines executed:100.0% of 31
 ```
 
+
+---
 ## Problem 4 **(BONUS)**
 > For implementation see [endian.c](endian.c).
 
