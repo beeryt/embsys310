@@ -4,6 +4,14 @@
 *.out
 *.ewt
 *.map
+*.pbd
+*.pbd.browse
+*.pbw
+*.pbi
+*.pbi.dep
+*.sim
+*.ninja_deps
+*.ninja_log
 *.gcda
 *.gcno
 *.gcov
