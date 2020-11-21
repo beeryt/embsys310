@@ -4,6 +4,28 @@
 - [Problem 3](#Problem-3)
 - [Problem 4](#Problem-4)
 
+The [main.c](main.c) file contains the implementation for the `main()` function for each problem below.
+Which problem is "selected" depends on the following compile-time definition: `-DPROBLEMN` where N is 1 through 4.
+The compile-time definitions are already set up in the `iar/workspace.eww` IAR workspace.
+However, if you need to manually set them up go to `Project > Options > C/C++ Compiler > Preprocessor > Defined symbols`.
+Also check the `Preprocessor output to file` so switching projects will trigger a "rebuild".
+
+```C
+int main() {
+#if defined(PROBLEM1)
+    return problem1_main();
+#elif defined(PROBLEM2)
+    return problem2_main();
+#elif defined(PROBLEM3)
+    return problem3_main();
+#elif defined(PROBLEM4)
+    return problem4_main();
+#else
+    return 1; // set which problem will run using compiler define: `-DPROBLEM1`
+    // if using the `assignment05/iar/workspace.eww` then this is already set
+#endif
+}
+```
 
 ---
 ## Problem 1

@@ -22,7 +22,17 @@ int problem3_main();
 int problem4_main();
 
 int main() {
-    return problem1_main(); // change which problem "main" function runs here
+#if defined(PROBLEM1)
+    return problem1_main();
+#elif defined(PROBLEM2)
+    return problem2_main();
+#elif defined(PROBLEM3)
+    return problem3_main();
+#elif defined(PROBLEM4)
+    return problem4_main();
+#else
+    return 1; // set which problem will run using compiler define: `-DPROBLEM1`
+#endif
 }
 
 void swap_pointers(void** ptrA, void** ptrB) {
@@ -47,13 +57,17 @@ int problem1_main() {
     assert(B == *ptrA);
     assert(originalA == ptrB);
     assert(originalB == ptrA);
+    return 0;
 }
 
 int problem2_main() {
+    return 0;
 }
 
 int problem3_main() {
+    return 0;
 }
 
 int problem4_main() {
+    return 0;
 }
