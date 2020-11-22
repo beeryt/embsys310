@@ -122,4 +122,13 @@ int main() {
   > See [swapPointersAsm.s](swapPointersAsm.s) for implementation of `swapPointersAsm()`.<br>
   > See [main.c](main.c) for implementation of `problem4_main()`.
 ### 3.c Run your program on the board and capture a screenshot of the serial output showing the result of `swapPointersAsm()` subroutine.
-  > ![Screenshot Placeholder]()
+  > Since I used my own `problem4_main` function there was no TeraTerm output to grab. Instead the following steps were followed:
+  > 1. Launch Debugger on physical board
+  > 2. Run to breakpoint on line 106
+  > 3. Run to breakpoint on line 113
+  > 4. Observe no assert caused program failure
+  >
+  > The asserts in `problem4_main` are some basic tests to check if
+  > the pointers were actually swapped. This can also be observed in the Locals view where `*ptrA == 2` and `*ptrB == 1`.
+  >
+  > ![swapPointersAsm passes tests](problem4_proof.png)

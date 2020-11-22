@@ -95,5 +95,20 @@ int problem3_main() {
 }
 
 int problem4_main() {
+    int A = 1;
+    int B = 2;
+    int *ptrA = &A;
+    int *ptrB = &B;
+
+    int *originalA = ptrA;
+    int *originalB = ptrB;
+
+    swapPointersAsm((void*)&ptrA, (void*)&ptrB);
+
+    assert(ptrA != ptrB);
+    assert(A == *ptrB);
+    assert(B == *ptrA);
+    assert(originalA == ptrB);
+    assert(originalB == ptrA);
     return 0;
 }
