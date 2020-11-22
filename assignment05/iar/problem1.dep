@@ -23,6 +23,7 @@
             <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
             <file>$PROJ_DIR$\Debug\Exe\problem1.out</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\problem1.pbd</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\..\main.c</name>

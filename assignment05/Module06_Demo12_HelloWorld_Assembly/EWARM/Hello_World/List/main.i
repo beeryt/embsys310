@@ -696,19 +696,21 @@ typedef struct
 
 void swap_pointers(void** ptrA, void** ptrB);       
 int divAsm(int a);                                  
-void swapCharsAsm(char a, char b);                  
+int swapCharsAsm(char* a, char* b);                 
 void swapPointersAsm(void** ptrA, void** ptrB);     
 
 
 int problem1_main();
-int hello_world(); 
+int problem2_main();
 int problem3_main();
 int problem4_main();
 
 
+int hello_world(int (*callback)()); 
+
 
 int main() {
-    return hello_world(); 
+    return hello_world(&problem2_main);
 }
 
 void swap_pointers(void** ptrA, void** ptrB) {
@@ -728,11 +730,11 @@ int problem1_main() {
 
     swap_pointers((void*)&ptrA, (void*)&ptrB);
 
-    ((ptrA != ptrB) ? (void) 0 : (__aeabi_assert("ptrA != ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 57), (__iar_EmptyStepPoint())));
-    ((A == *ptrB) ? (void) 0 : (__aeabi_assert("A == *ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 58), (__iar_EmptyStepPoint())));
-    ((B == *ptrA) ? (void) 0 : (__aeabi_assert("B == *ptrA", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 59), (__iar_EmptyStepPoint())));
-    ((originalA == ptrB) ? (void) 0 : (__aeabi_assert("originalA == ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 60), (__iar_EmptyStepPoint())));
-    ((originalB == ptrA) ? (void) 0 : (__aeabi_assert("originalB == ptrA", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 61), (__iar_EmptyStepPoint())));
+    ((ptrA != ptrB) ? (void) 0 : (__aeabi_assert("ptrA != ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 59), (__iar_EmptyStepPoint())));
+    ((A == *ptrB) ? (void) 0 : (__aeabi_assert("A == *ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 60), (__iar_EmptyStepPoint())));
+    ((B == *ptrA) ? (void) 0 : (__aeabi_assert("B == *ptrA", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 61), (__iar_EmptyStepPoint())));
+    ((originalA == ptrB) ? (void) 0 : (__aeabi_assert("originalA == ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 62), (__iar_EmptyStepPoint())));
+    ((originalB == ptrA) ? (void) 0 : (__aeabi_assert("originalB == ptrA", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 63), (__iar_EmptyStepPoint())));
     return 0;
 }
 
@@ -742,15 +744,45 @@ int problem2_main() {
 
     int actual = divAsm(original);
 
-    ((54321 == original) ? (void) 0 : (__aeabi_assert("54321 == original", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 71), (__iar_EmptyStepPoint())));
-    ((actual == expected) ? (void) 0 : (__aeabi_assert("actual == expected", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 72), (__iar_EmptyStepPoint())));
+    ((54321 == original) ? (void) 0 : (__aeabi_assert("54321 == original", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 73), (__iar_EmptyStepPoint())));
+    ((actual == expected) ? (void) 0 : (__aeabi_assert("actual == expected", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 74), (__iar_EmptyStepPoint())));
     return 0;
 }
 
 int problem3_main() {
+    int r;
+    char A = 'A';
+    char B = 'B';
+
+    r = swapCharsAsm(&A, &B);
+
+    ((1 == r) ? (void) 0 : (__aeabi_assert("1 == r", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 85), (__iar_EmptyStepPoint())));
+    (('A' == B) ? (void) 0 : (__aeabi_assert("'A' == B", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 86), (__iar_EmptyStepPoint())));
+    (('B' == A) ? (void) 0 : (__aeabi_assert("'B' == A", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 87), (__iar_EmptyStepPoint())));
+
+    r = swapCharsAsm(&A, &A);
+
+    ((0 == r) ? (void) 0 : (__aeabi_assert("0 == r", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 91), (__iar_EmptyStepPoint())));
+    ((A == A) ? (void) 0 : (__aeabi_assert("A == A", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 92), (__iar_EmptyStepPoint())));
+    (('B' == A) ? (void) 0 : (__aeabi_assert("'B' == A", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 93), (__iar_EmptyStepPoint())));
     return 0;
 }
 
 int problem4_main() {
+    int A = 1;
+    int B = 2;
+    int *ptrA = &A;
+    int *ptrB = &B;
+
+    int *originalA = ptrA;
+    int *originalB = ptrB;
+
+    swapPointersAsm((void*)&ptrA, (void*)&ptrB);
+
+    ((ptrA != ptrB) ? (void) 0 : (__aeabi_assert("ptrA != ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 108), (__iar_EmptyStepPoint())));
+    ((A == *ptrB) ? (void) 0 : (__aeabi_assert("A == *ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 109), (__iar_EmptyStepPoint())));
+    ((B == *ptrA) ? (void) 0 : (__aeabi_assert("B == *ptrA", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 110), (__iar_EmptyStepPoint())));
+    ((originalA == ptrB) ? (void) 0 : (__aeabi_assert("originalA == ptrB", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 111), (__iar_EmptyStepPoint())));
+    ((originalB == ptrA) ? (void) 0 : (__aeabi_assert("originalB == ptrA", "C:\\Users\\Carl\\Desktop\\UW_Workspace\\embsys310\\assignment05\\main.c", 112), (__iar_EmptyStepPoint())));
     return 0;
 }

@@ -16923,7 +16923,7 @@ int problem2_main();
 
 
  
-int hello_world(void)
+int hello_world(int (*main_callback)())
 {
      
 
@@ -16959,7 +16959,7 @@ int hello_world(void)
 
     HAL_UART_Transmit(&huart1, myTxData, sizeof(myTxData), 10);
 
-    int ret = problem2_main();
+    int ret = main_callback();
 
     HAL_UART_Transmit(&huart1, endOfProgram, sizeof(endOfProgram), 10);
 

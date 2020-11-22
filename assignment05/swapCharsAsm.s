@@ -22,7 +22,7 @@
 /**
  * Takes as input two char addresses and swaps the chars within
  *
- * void swapCharsAsm(char*, char*);
+ * void swapCharsAsm(char* charA, char* charB);
  *
  * \param charA (R0)
  * \param charB (R1)
