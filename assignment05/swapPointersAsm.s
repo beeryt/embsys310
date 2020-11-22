@@ -32,6 +32,7 @@
     LDR         R2, [R0]        // load word (void*) from ptrA address
     LDR         R3, [R1]        // load word (void*) from ptrB address
 
+    // perform in-place XOR swap
     EOR         R2, R2, R3      // *ptrA ^= *ptrB
     EOR         R3, R3, R2      // *ptrB ^= *ptrA
     EOR         R2, R2, R3      // *ptrA ^= *ptrB

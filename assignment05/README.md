@@ -30,7 +30,7 @@ int main() {
 ---
 ## Problem 1
   > See [swapPointer.c](swapPointer.c) for implementation of `swap_pointer()`.<br>
-  > See [main.c](main.c) for implementation of `problem1_main()`.
+  > See [main.c:42](main.c#L42) for implementation of `problem1_main()`.
 ### 1.a Explain what the `main()` function does in order to setup the input arguments prior to calling the `swap_pointer()` function?
   > The declaration is `void swap_pointer(void**, void**)` since in order to swap pointers (and not their values) the *address* of the pointers must be passed into the swap function. I chose to use `void*` since it is guaranteed to hold any ***data*** pointer type (this will not work generically for function pointers).
   >
@@ -78,7 +78,8 @@ int main() {
 ---
 ## Problem 2
   > See [divAsm.s](divAsm.s) for implementation of `divAsm()`.<br>
-  > See [main.c](main.c) for implementation of `problem2_main()`.
+  > See [main.c:61](main.c#L61) for implementation of `problem2_main()`.<br>
+  > See [hello_world.c:81](Module06_Demo12_HelloWorld_Assembly/Src/hello_world.c#L81) for nesting inside module06 demo.
 ### 2.f Run your program on the board and capture a screenshot of the serial output showing the result of `divAsm`.
   > ![Serial output after `divAsm()` is called](problem2_terminal.png)
 
@@ -86,7 +87,7 @@ int main() {
 ---
 ## Problem 3
   > See [swapCharAsm.s](swapCharAsm.s) for implementation of `swapCharAsm()`.<br>
-  > See [main.c](main.c) for implementation of `problem3_main()`.
+  > See [main.c:72](main.c#L72) for implementation of `problem3_main()`.
 ### 3.c **Bonus:** Return 0 if the two chars are identical; otherwise return 1.
   > The following code is used to test the `swapCharAsm` function:
   >
@@ -120,7 +121,7 @@ int main() {
 ---
 ## Problem 4 **Bonus**
   > See [swapPointersAsm.s](swapPointersAsm.s) for implementation of `swapPointersAsm()`.<br>
-  > See [main.c](main.c) for implementation of `problem4_main()`.
+  > See [main.c:91](main.c#L91) for implementation of `problem4_main()`.
 ### 3.c Run your program on the board and capture a screenshot of the serial output showing the result of `swapPointersAsm()` subroutine.
   > Since I used my own `problem4_main` function there was no TeraTerm output to grab. Instead the following steps were followed:
   > 1. Launch Debugger on physical board
