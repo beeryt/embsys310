@@ -80,7 +80,7 @@ int main() {
   > See [divAsm.s](divAsm.s) for implementation of `divAsm()`.<br>
   > See [main.c](main.c) for implementation of `problem2_main()`.
 ### 2.f Run your program on the board and capture a screenshot of the serial output showing the result of `divAsm`.
-  > ![Screenshot Placeholder]()
+  > ![Serial output after `divAsm()` is called](problem2_terminal.png)
 
 
 ---
