@@ -5,44 +5,42 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\..\divAsm.s</file>
-            <file>$PROJ_DIR$\Debug\Obj\swapCharsAsm.o</file>
-            <file>$PROJ_DIR$\..\swapCharsAsm.s</file>
-            <file>$PROJ_DIR$\Debug\List\problem3.map</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
             <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$PROJ_DIR$\Debug\List\main.i</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
             <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\swapCharsAsm.o</file>
+            <file>$PROJ_DIR$\..\swapCharsAsm.s</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
             <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\problem3.pbd</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
             <file>$PROJ_DIR$\..\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\List\problem3.map</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
             <file>$TOOLKIT_DIR$\config\linker\ST\stm32l475xG.icf</file>
             <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
             <file>$PROJ_DIR$\Debug\Exe\problem3.out</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
         </outputs>
-        <file>
-            <name>$PROJ_DIR$\..\swapCharsAsm.s</name>
-            <outputs>
-                <tool>
-                    <name>AARM</name>
-                    <file> 1</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 21 3</file>
+                    <file> 18 11</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\swapCharsAsm.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 4</file>
                 </tool>
             </outputs>
         </file>
@@ -51,21 +49,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 11 14</file>
+                    <file> 6 10</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 20</file>
+                    <file> 17</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 6</file>
+                    <file> 13</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 9 8 5 7 10 4</file>
+                    <file> 0 19 12 9 1 2</file>
                 </tool>
             </inputs>
         </file>
@@ -74,13 +72,13 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 3</file>
+                    <file> 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 19 14 1 12 15 17 13</file>
+                    <file> 16 10 4 3 14 15 7</file>
                 </tool>
             </inputs>
         </file>

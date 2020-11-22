@@ -6,3 +6,17 @@
  *
  *  Description:    swap two pointers
  */
+
+/**
+ * Swaps two pointers
+ *
+ * Behavior is undefined if using function pointers
+ *
+ * \param ptrA  data pointer
+ * \param ptrB  data pointer
+ */
+void swap_pointers(void** ptrA, void** ptrB) {
+    void* tmp = *ptrA;
+    *ptrA = *ptrB;
+    *ptrB = tmp;
+}

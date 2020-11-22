@@ -39,12 +39,6 @@ int main() {
 #endif
 }
 
-void swap_pointers(void** ptrA, void** ptrB) {
-    void* tmp = *ptrA;
-    *ptrA = *ptrB;
-    *ptrB = tmp;
-}
-
 int problem1_main() {
     int A = 1;
     int B = 2;
