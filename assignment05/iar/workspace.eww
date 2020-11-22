@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspace>
     <project>
-        <path>$WS_DIR$\problem1.ewp</path>
+        <path>$WS_DIR$\..\Module06_Demo12_HelloWorld_Assembly\EWARM\Hello_World.ewp</path>
     </project>
     <project>
-        <path>$WS_DIR$\problem2.ewp</path>
+        <path>$WS_DIR$\problem1.ewp</path>
     </project>
     <project>
         <path>$WS_DIR$\problem3.ewp</path>

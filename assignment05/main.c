@@ -17,15 +17,17 @@ void swapPointersAsm(void** ptrA, void** ptrB);     // used in problem4
 
 // Function declarations for "main" function for each problem
 int problem1_main();
-int problem2_main();
+int hello_world(); // "main" function from module demo. Calls problem2_main().
 int problem3_main();
 int problem4_main();
+
+
 
 int main() {
 #if defined(PROBLEM1)
     return problem1_main();
 #elif defined(PROBLEM2)
-    return problem2_main();
+    return hello_world(); // problem2_main gets called within this function
 #elif defined(PROBLEM3)
     return problem3_main();
 #elif defined(PROBLEM4)
@@ -61,6 +63,13 @@ int problem1_main() {
 }
 
 int problem2_main() {
+    int original = 54321;
+    int expected = original / 2;
+
+    int actual = divAsm(original);
+
+    assert(54321 == original);
+    assert(actual == expected);
     return 0;
 }
 
