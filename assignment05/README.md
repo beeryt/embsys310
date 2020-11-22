@@ -88,7 +88,33 @@ int main() {
   > See [swapCharAsm.s](swapCharAsm.s) for implementation of `swapCharAsm()`.<br>
   > See [main.c](main.c) for implementation of `problem3_main()`.
 ### 3.c **Bonus:** Return 0 if the two chars are identical; otherwise return 1.
-  > ![Screenshot Placeholder]()
+  > The following code is used to test the `swapCharAsm` function:
+  >
+  > ```C
+  > int r;
+  > char A = 'A';
+  > char B = 'B';
+  >
+  > r = swapCharsAsm(&A, &B);
+  >
+  > assert(1 == r);
+  > assert('A' == B);
+  > assert('B' == A);
+  >
+  > r = swapCharsAsm(&A, &A);
+  >
+  > assert(0 == r);
+  > assert(A == A);
+  > assert('B' == A);
+  > ```
+  >
+  > After calling with different arguments, the value of r is 1.
+  >
+  > ![swapCharAsm returns 1 with different arguments](problem3_different_return_1.png)
+  >
+  > After calling with identical arguments, the value of r is 0.
+  >
+  > ![swapCharAsm returns 0 with identical arguments](problem3_equal_return_0.png)
 
 
 ---

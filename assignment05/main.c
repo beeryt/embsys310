@@ -12,7 +12,7 @@
 // Function declarations of functions used in all problems
 void swap_pointers(void** ptrA, void** ptrB);       // used in problem1
 int divAsm(int a);                                  // used in problem2
-void swapCharsAsm(char a, char b);                  // used in problem3
+int swapCharsAsm(char* a, char* b);                 // used in problem3
 void swapPointersAsm(void** ptrA, void** ptrB);     // used in problem4
 
 // Function declarations for "main" function for each problem
@@ -74,6 +74,21 @@ int problem2_main() {
 }
 
 int problem3_main() {
+    int r;
+    char A = 'A';
+    char B = 'B';
+
+    r = swapCharsAsm(&A, &B);
+
+    assert(1 == r);
+    assert('A' == B);
+    assert('B' == A);
+
+    r = swapCharsAsm(&A, &A);
+
+    assert(0 == r);
+    assert(A == A);
+    assert('B' == A);
     return 0;
 }
 

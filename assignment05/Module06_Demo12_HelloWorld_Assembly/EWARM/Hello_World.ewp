@@ -1069,9 +1069,6 @@
         <group>
             <name>User</name>
             <file>
-                <name>$PROJ_DIR$\..\Src\hello_world.c</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\Src\print.c</name>
             </file>
             <file>
@@ -1156,6 +1153,9 @@
     </group>
     <file>
         <name>$PROJ_DIR$\..\..\divAsm.s</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\Src\hello_world.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\..\..\main.c</name>
