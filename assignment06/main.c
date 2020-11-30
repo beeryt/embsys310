@@ -1,3 +1,11 @@
+/*
+ *  File:           main.c
+ *  Author:         Carl B. Smiley
+ *  Date:           Nov 21 2020
+ *  Course:         Fundamentals of Embedded and Real Time Systems
+ *
+ *  Description:    Blink code using externally linked assembly functions
+ */
 #include <stdint.h>
 
 // LD1 --> PA5 -- Homework
