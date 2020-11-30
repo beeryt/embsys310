@@ -1,7 +1,7 @@
 /*
  *  File:           rcc_ctrl.s
  *  Author:         Carl B. Smiley
- *  Date:           Nov 21 2020
+ *  Date:           Nov 29 2020
  *  Course:         Fundamentals of Embedded and Real Time Systems
  *
  *  Description:    Assembly language function for enabling RCC using bit-banding
