@@ -1,7 +1,7 @@
 /*
  *  File:           user_led.s
  *  Author:         Carl B. Smiley
- *  Date:           Nov 29 2020
+ *  Date:           Nov 30 2020
  *  Course:         Fundamentals of Embedded and Real Time Systems
  *
  *  Description:    Assembly language function for controlling the user LED
@@ -22,19 +22,37 @@
                         // Subsequent instructions are assembled as THUMB instructions
 
 GPIOA_BASE  EQU 0x48000000
-GPIOB_BASE  EQU 0x48000400
 GPIO_ODR    EQU 0x14
 GPIO_BIT_5  EQU (1<<5)
-GPIO_BIT_14 EQU (1<<14)
 
 /**
  * Assembly language function for controlling the user LED
  *
  * void control_user_led1(uint8_t state, uint32_t duration);
  *
- * \param state (R0)            whether LED should be ON(1) or OFF(0)
- * \param duration (R1)         how many cycles to delay for
+ * \param R0 (state)            whether LED should be LED_ON(1) or LED_OFF(0)
+ * \param R1 (duration)         how many iterations to delay for
  */
 control_user_led1
+  // set LED1 state in GPIOA
+  //    register inputs:        R0 (state)
+  //    registers modified:     R0, R2, R3
+  //
+  LSL   R0, R0, #5              // prepare state for writing
+  MOV   R2, #GPIOA_BASE         // load GPIOA_BASE into R2
+  LDR   R3, [R2, #GPIO_ODR]     // read current value of GPIO_ODR
+  AND   R3, R3, #~GPIO_BIT_5    // clear GPIO_BIT_5
+  ORR   R3, R3, R0              // set GPIO_BIT_5 according to state
+  STR   R3, [R2, #GPIO_ODR]     // write modified value of GPIO_ODR
+
+  // send duration to delay function
+  //    register inputs:        R1 (duration)
+  //    registers modified:     R0
+  //
+  MOV   R0, R1                  // move duration into R0 parameter position
+  PUSH  {LR}                    // save LR before calling subroutine
+  BL    delay                   // call delay subroutine
+  POP   {LR}                    // restore LR after subroutine
+  BX    LR                      // branch back to LR
 
   END

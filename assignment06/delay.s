@@ -1,7 +1,7 @@
 /*
  *  File:           delay.s
  *  Author:         Carl B. Smiley
- *  Date:           Nov 29 2020
+ *  Date:           Nov 30 2020
  *  Course:         Fundamentals of Embedded and Real Time Systems
  *
  *  Description:    Assembly language function for basic busy wait
@@ -22,8 +22,14 @@
  *
  * void delay(uint32_t iteration);
  *
- * \param iteration (R0)        number of loops to delay
+ * \param R0 (iteration)        number of loops to delay
  */
 delay
-
+  // loop while R0 > 0
+  //    register inputs:        R0 (iterations)
+  //    registers modified:     R0
+  //
+  SUBS  R0, R0, #1      // subtract 1 and set status bits
+  BNE   delay           // loop while R0 > 0
+  BX    LR              // branch back to LR
   END

@@ -5,39 +5,46 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
             <file>$PROJ_DIR$\..\delay.s</file>
             <file>$PROJ_DIR$\..\main.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\..\rcc_ctrl.s</file>
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
             <file>$PROJ_DIR$\Debug\List\problem3.map</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\..\rcc_ctrl.s</file>
             <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
             <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
             <file>$PROJ_DIR$\Debug\Obj\problem3.pbd</file>
             <file>$PROJ_DIR$\Debug\Obj\rcc_ctrl.o</file>
             <file>$PROJ_DIR$\..\user_led.s</file>
             <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
             <file>$TOOLKIT_DIR$\config\linker\ST\stm32l475xG.icf</file>
             <file>$PROJ_DIR$\Debug\Obj\user_led.o</file>
             <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
             <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
             <file>$PROJ_DIR$\Debug\Exe\problem3.out</file>
-            <file>$PROJ_DIR$\..\include\stm32l475xx.h</file>
-            <file>$PROJ_DIR$\..\problem1.c</file>
         </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 5 23</file>
+                </tool>
+            </outputs>
+        </file>
         <file>
             <name>$PROJ_DIR$\..\delay.s</name>
             <outputs>
                 <tool>
                     <name>AARM</name>
-                    <file> 15</file>
+                    <file> 22</file>
                 </tool>
             </outputs>
         </file>
@@ -45,22 +52,22 @@
             <name>$PROJ_DIR$\..\main.c</name>
             <outputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 16</file>
+                    <name>ICCARM</name>
+                    <file> 9</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 3</file>
+                    <name>BICOMP</name>
+                    <file> 15</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 22</file>
+                    <file> 20</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 5 19 7 20 2 21</file>
+                    <file> 4 19 6 21 8 16</file>
                 </tool>
             </inputs>
         </file>
@@ -87,24 +94,15 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 6</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 17 15 3 12 18 4 10 14 9</file>
+                    <file> 17 22 9 12 18 0 10 14 7</file>
                 </tool>
             </inputs>
-        </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 6 23</file>
-                </tool>
-            </outputs>
         </file>
     </configuration>
     <configuration>
