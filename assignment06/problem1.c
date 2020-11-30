@@ -9,6 +9,8 @@
 
 #include "include/stm32l475xx.h"
 
+#define DELAY_DURATION 100000
+
 int main() {
   // enable peripheral clock for GPIOA and GPIOB
   RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN | RCC_AHB2ENR_GPIOBEN;
@@ -26,7 +28,7 @@ int main() {
     GPIOB->ODR ^= GPIO_ODR_OD14;
 
     // quick and dirty busy wait
-    int counter = 1e6;
+    int counter = DELAY_DURATION;
     while (counter--) {}
   }
 }
