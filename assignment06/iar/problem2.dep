@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>3062579580</fileChecksum>
+    <fileChecksum>852597938</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -30,6 +30,7 @@
             <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
             <file>$PROJ_DIR$\..\include\stm32l475xx.h</file>
             <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
@@ -54,7 +55,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 17</file>
+                    <file> 25 17</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -96,9 +97,6 @@
                 </tool>
             </inputs>
         </file>
-        <forcedrebuild>
-            <name>[REBUILD_ALL]</name>
-        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>

@@ -15,7 +15,8 @@
 #define GPIOA_MODER             (*((unsigned int*)(GPIOA_BASE + 0x00)))
 #define GPIOA_ODR               (*((unsigned int*)(GPIOA_BASE + 0x14)))
 
-#define GPIOAEN                 (1<<0)
+#define GPIOAEN_POS             0
+#define GPIOAEN                 (1<<GPIOAEN_POS)
 #define ORD5                    (1<<5)
 #define GPIO_MODER_MODE5_0      (0x1<<10)
 #define GPIO_MODER_MODE5_1      (0x2<<10)
@@ -31,8 +32,11 @@ void enable_rcc(uint32_t port);
 void main(void)
 {
     // enable GPIOA peripheral clock
+#if defined(PROBLEM3)
+    enable_rcc(GPIOAEN_POS);
+#else
     RCC_AHB2ENR |= GPIOAEN;
-    // enable_rcc(0);
+#endif
 
     // enable PA5 output mode (shortcut when starting at reset value)
     GPIOA_MODER &= ~GPIO_MODER_MODE5_1;

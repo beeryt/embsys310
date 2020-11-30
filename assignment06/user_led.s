@@ -53,6 +53,6 @@ control_user_led1
   PUSH  {LR}                    // save LR before calling subroutine
   BL    delay                   // call delay subroutine
   POP   {LR}                    // restore LR after subroutine
-  BX    LR                      // branch back to LR
 
+  BX    LR                      // branch back to LR
   END

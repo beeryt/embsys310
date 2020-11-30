@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>1260412235</fileChecksum>
+    <fileChecksum>499827909</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -29,13 +29,14 @@
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
             <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
             <file>$PROJ_DIR$\Debug\Exe\problem3.out</file>
+            <file>$PROJ_DIR$\Debug\List\main.i</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 5 23</file>
+                    <file> 23 5</file>
                 </tool>
             </outputs>
         </file>
@@ -53,7 +54,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 9</file>
+                    <file> 24 9</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>

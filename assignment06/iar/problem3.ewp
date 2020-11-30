@@ -220,11 +220,11 @@
                 <debug>1</debug>
                 <option>
                     <name>CCDefines</name>
-                    <state></state>
+                    <state>PROBLEM3</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCPreprocComments</name>
