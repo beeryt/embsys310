@@ -73,4 +73,38 @@ shb_l.a: [4]
 ### Is there anything that can be done to optimize the usage of ROM or RAM resources?
   > Reducing the CSTACK limit is the single largest optimization for RAM resources. For instance, this program uses barely any stack. A CSTACK limit of 0x64 is plenty and reduces the total RAM usage to 116 bytes. Keep in mind reducing the stack may leave you more prone to stack corruption and esoteric bugs.
   >
-  > Optimizing for ROM is mainly done through the compiler optimization flags. Specifically `-Os` is defined to optimize for size, but there is a speed trade-off.
+  > Optimizing for ROM is mainly done through the compiler optimization flags. Specifically `-Os` is defined to optimize for size, but there is a speed trade-off. With this program I was able to reduce from 444 bytes to 340 bytes in ROM using size-oriented optimizations.
+
+```
+C:\Users\Carl\Desktop\UW_Workspace\embsys310\assignment07\iar\Debug\Obj: [1]
+    main.o                      92                 4
+    startup_stm32l475xx.o        2
+    ------------------------------------------------
+    Total:                      94                 4
+
+dl7M_tln.a: [2]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+rt7M_tl.a: [3]
+    cexit.o                     10
+    cmain.o                     30
+    cstartup_M.o                12
+    data_init.o                 40
+    vector_table_M.o            64
+    zero_init3.o                58
+    ------------------------------------------------
+    Total:                     214
+
+shb_l.a: [4]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                         4
+    Linker created                       16      100
+----------------------------------------------------
+    Grand Total:               340       16      104
+```
