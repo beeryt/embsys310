@@ -1,7 +1,7 @@
 # EMBSYS 310 - Assignment 06
-- [Problem 1](#Problem-1)
-- [Problem 2](#Problem-2)
-- [Problem 3](#Problem-3)
+- [Problem 1](#problem-1)
+- [Problem 2](#problem-2)
+- [Problem 3](#problem-3)
 
 ## Problem 1
 ### 1.a Implement toggling of LED1 using CMSIS data structures
