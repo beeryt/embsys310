@@ -32,7 +32,6 @@
             <file>$PROJ_DIR$\Debug\Obj\startup_stm32l475xx.o</file>
             <file>$PROJ_DIR$\Debug\Obj\startup_stm32l475xx.xcl</file>
             <file>$PROJ_DIR$\..\include\stm32l4xx_it.h</file>
-            <file>$PROJ_DIR$\project.icf</file>
             <file>$PROJ_DIR$\..\stm32l4xx_it.h</file>
             <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
             <file>$PROJ_DIR$\..\startup_stm32l475xx.c</file>
@@ -52,7 +51,7 @@
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 27 7 24 22 18 20 21</file>
+                    <file> 23 7 24 22 18 20 21</file>
                 </tool>
             </inputs>
         </file>
@@ -61,7 +60,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 32 7</file>
+                    <file> 31 7</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -69,13 +68,13 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 29</file>
+                    <file> 28</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 28 31 6 3 16 17 5 0 15 13 8 4 10 1 11</file>
+                    <file> 27 30 6 3 16 17 5 0 15 13 8 4 10 1 11</file>
                 </tool>
             </inputs>
         </file>
@@ -93,7 +92,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 34 24</file>
+                    <file> 33 24</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -101,20 +100,16 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 33</file>
+                    <file> 32</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 28</file>
+                    <file> 27</file>
                 </tool>
             </inputs>
         </file>
-        <forcedrebuild>
-            <name>[MULTI_TOOL]</name>
-            <tool>ILINK</tool>
-        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>

@@ -12,6 +12,8 @@
 ### 1.e Implement delay() function to be accurate to the millisecond
   > See [main.c:53](main.c#L53) for implementation of delay.
 
+![Demo GIF](demo.gif)
+
 ## Problem 2
 ### 2.a How much total ROM is your program occupying?
   > The total ROM my program occupies is **444 bytes**.
@@ -21,6 +23,50 @@
   > `main.o` is the single largest object file at 196 bytes. However, `rt7M_t1.a` has a combined size of 214 bytes. These values are not the file sizes, but the machine code sizes from the .map file.
 ### 2.d What part of your program is using the most RAM?
   > `main.o` is using 4 bytes for the global `g_milliseconds_elapsed`, but IAR by default allocates 8192 (0x2000) bytes for the CSTACK.
+
+```
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+C:\Users\Carl\Desktop\UW_Workspace\embsys310\assignment07\iar\Debug\Obj: [1]
+    main.o                     196                 4
+    startup_stm32l475xx.o        2
+    ------------------------------------------------
+    Total:                     198                 4
+
+dl7M_tln.a: [2]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+rt7M_tl.a: [3]
+    cexit.o                     10
+    cmain.o                     30
+    cstartup_M.o                12
+    data_init.o                 40
+    vector_table_M.o            64
+    zero_init3.o                58
+    ------------------------------------------------
+    Total:                     214
+
+shb_l.a: [4]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                         4
+    Linker created                       16    8'192
+----------------------------------------------------
+    Grand Total:               444       16    8'196
+```
 
 
 ## Problem 3 (bonus)
