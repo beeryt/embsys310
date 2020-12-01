@@ -13,7 +13,7 @@ extern void __iar_program_start(void);  // Reset_Handler should start here!
 
 void Unused_Handler(void);              // primary handler for any unused vectors
 
-const int __vector_table[] @ ".intvec" = {
+static int const __vector_table[] @ ".intvec" = {
     (int)&CSTACK$$Limit,
     (int)&__iar_program_start,
     (int)&NMI_Handler,

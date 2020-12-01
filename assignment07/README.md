@@ -5,16 +5,26 @@
 
 ## Problem 1
 ### 1.b Define your own vector table as we did during class
+  > See [startup_stm32l475xx.c](startup_stm32l475xx.c) for implementation of `__vector_table`.
 ### 1.c Setup the SysTick timer to trigger an interrupt every 1ms
+  > See [main.c:22](main.c#L22) for configuration of SysTick.<br>
+  > See [main.c:42](main.c#L42) for implementation of SysTick_Handler.
 ### 1.e Implement delay() function to be accurate to the millisecond
-
+  > See [main.c:53](main.c#L53) for implementation of delay.
 
 ## Problem 2
 ### 2.a How much total ROM is your program occupying?
+  > The total ROM my program occupies is **444 bytes**.
 ### 2.b How much total RAM is your program using?
+  > The total RAM my program uses is **16 + 8192 bytes**.
 ### 2.c What part of your program is using the most ROM?
+  > `main.o` is the single largest object file at 196 bytes. However, `rt7M_t1.a` has a combined size of 214 bytes. These values are not the file sizes, but the machine code sizes from the .map file.
 ### 2.d What part of your program is using the most RAM?
+  > `main.o` is using 4 bytes for the global `g_milliseconds_elapsed`, but IAR by default allocates 8192 (0x2000) bytes for the CSTACK.
 
 
 ## Problem 3 (bonus)
 ### Is there anything that can be done to optimize the usage of ROM or RAM resources?
+  > Reducing the CSTACK limit is the single largest optimization for RAM resources. For instance, this program uses barely any stack. A CSTACK limit of 0x64 is plenty and reduces the total RAM usage to 116 bytes. Keep in mind reducing the stack may leave you more prone to stack corruption and esoteric bugs.
+  >
+  > Optimizing for ROM is mainly done through the compiler optimization flags. Specifically `-Os` is defined to optimize for size, but there is a speed trade-off.
